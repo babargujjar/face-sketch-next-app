@@ -8,11 +8,11 @@ import { categories } from "../../../public/assets/elements";
 import { useToast } from "../hooks/use-toast";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { toast, Toaster } from "sonner";
 
 export default function page() {
   const [canvasElements, setCanvasElements] = useState([]);
   const [selectedElement, setSelectedElement] = useState(null);
-  const { toast } = useToast();
 
   /**
    * Add a new element to the canvas
@@ -56,11 +56,10 @@ export default function page() {
     setCanvasElements(prev => prev.filter(element => element.id !== elementId));
     setSelectedElement(null);
     
-    toast({
-      title: "Element Deleted",
+    toast.success("Element Deleted", {
       description: "The element has been removed from the canvas.",
     });
-  }, [toast]);
+  }, []);
 
   /**
    * Select an element on the canvas
@@ -76,11 +75,11 @@ export default function page() {
   const handleReset = useCallback(() => {
     setCanvasElements([]);
     setSelectedElement(null);
-    toast({
-      title: "Canvas Reset",
-      description: "All elements have been removed from the canvas.",
-    });
-  }, [toast]);
+   toast.info("Canvas Reset", {
+     description: "All elements have been removed from the canvas.",
+   });
+
+  }, []);
 
   /**
    * Export the current state as a JSON file
@@ -96,11 +95,11 @@ export default function page() {
     linkElement.setAttribute('download', exportFileDefaultName);
     linkElement.click();
     
-    toast({
-      title: "Export successful",
-      description: "Your sketch has been exported as JSON.",
-    });
-  }, [canvasElements, toast]);
+   toast.success("Export successful", {
+     description: "Your sketch has been exported as JSON.",
+   });
+
+  }, [canvasElements]);
 
   /**
    * Import data from a JSON file
@@ -115,11 +114,9 @@ export default function page() {
    */
   const handleSave = useCallback(() => {
     if (canvasElements.length === 0) {
-      toast({
-        title: "Nothing to save",
-        description: "Add some elements to the canvas first.",
-        variant: "destructive",
-      });
+     toast.error("Nothing to save", {
+       description: "Add some elements to the canvas first.",
+     });
       return;
     }
     
@@ -132,11 +129,9 @@ export default function page() {
     const ctx = tempCanvas.getContext('2d');
     
     if (!ctx) {
-      toast({
-        title: "Save failed",
-        description: "Could not create canvas context.",
-        variant: "destructive",
-      });
+       toast.error("Save failed", {
+         description: "Could not create canvas context.",
+       });
       return;
     }
     
@@ -162,10 +157,10 @@ export default function page() {
           resolve();
         };
         img.onerror = () => {
-          console.error(`Failed to load image: ${element.src}`);
+          console.error(`Failed to load image: ${element.src.src}`);
           resolve();
         };
-        img.src = element.src;
+        img.src = element.src.src;
       });
     });
     
@@ -177,38 +172,35 @@ export default function page() {
       link.href = imageDataURL;
       link.click();
       
-      toast({
-        title: "Save successful",
-        description: "Your sketch has been saved as a PNG image.",
-      });
+       toast.success("Save successful", {
+         description: "Your sketch has been saved as a PNG image.",
+       });
     });
-  }, [canvasElements, toast]);
+  }, [canvasElements]);
 
   return (
     <DndProvider backend={HTML5Backend}>
-    <div className="flex flex-col h-screen overflow-hidden bg-gray-50 text-gray-800">
-      <Header 
-        onReset={handleReset}
-        onExport={handleExport}
-        onImport={handleImport}
-        onSave={handleSave}
-      />
-      
-      <div className="flex flex-1 overflow-hidden">
-        <Sidebar 
-          categories={categories} 
+      <div className="flex flex-col h-screen overflow-hidden bg-gray-50 text-gray-800">
+        <Header
           onReset={handleReset}
+          onExport={handleExport}
+          onImport={handleImport}
+          onSave={handleSave}
         />
-        
-        <Canvas 
-          elements={canvasElements}
-          onAddElement={handleAddElement}
-          onUpdateElement={handleUpdateElement}
-          onDeleteElement={handleDeleteElement}
-          onSelectElement={handleSelectElement}
-        />
+
+        <div className="flex flex-1 overflow-hidden">
+          <Sidebar categories={categories} onReset={handleReset} />
+
+          <Canvas
+            elements={canvasElements}
+            onAddElement={handleAddElement}
+            onUpdateElement={handleUpdateElement}
+            onDeleteElement={handleDeleteElement}
+            onSelectElement={handleSelectElement}
+          />
+        </div>
       </div>
-    </div>
+      <Toaster position="top-right" richColors />
     </DndProvider>
   );
 }

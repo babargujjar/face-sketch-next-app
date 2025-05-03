@@ -12,7 +12,6 @@ export enum ElementType {
   Nose = 'nose',
   Mouth = 'mouth',
   Hair = 'hair',
-  Hairs = 'hair',
 }
 
 export interface ElementCategory {

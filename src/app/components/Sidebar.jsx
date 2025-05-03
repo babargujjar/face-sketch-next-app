@@ -68,7 +68,6 @@ export default function Sidebar({ categories, onReset }) {
 
 
 function ElementItem({ element }) {
-  console.log('element', element)
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'facial-element',
     item: element,

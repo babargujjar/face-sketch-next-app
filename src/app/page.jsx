@@ -5,6 +5,8 @@ import SketchApp from "@/pages/SketchApp";
 import NotFound from "@/pages/not-found";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { Toaster } from "sonner";
+
 
 function Router() {
   return (
@@ -20,6 +22,7 @@ function page() {
     <QueryClientProvider client={queryClient}>
       <DndProvider backend={HTML5Backend}>
         <Router />
+        <Toaster position="top-right" richColors />
       </DndProvider>
     </QueryClientProvider>
   );

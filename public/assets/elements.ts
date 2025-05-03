@@ -201,38 +201,4 @@ export const categories = [
       }
     ]
   },
-  {
-    type: ElementType.Hairs,
-    label: "Hairs",
-    elements: [
-      {
-        id: "hair-short",
-        type: ElementType.Hair,
-        subtype: "short",
-        src: hairShort,
-        label: "Short Hair"
-      },
-      {
-        id: "hair-long",
-        type: ElementType.Hair,
-        subtype: "long",
-        src: hairLong,
-        label: "Long Hair"
-      },
-      {
-        id: "hair-curly",
-        type: ElementType.Hair,
-        subtype: "curly",
-        src: hairCurly,
-        label: "Curly Hair"
-      },
-      {
-        id: "hair-bald",
-        type: ElementType.Hair,
-        subtype: "bald",
-        src: hairBald,
-        label: "Bald"
-      }
-    ]
-  },
 ];

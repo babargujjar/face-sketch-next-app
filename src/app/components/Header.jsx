@@ -1,9 +1,8 @@
 import { Button } from "../components/ui/button";
-import { useToast } from "../hooks/use-toast";
+import { toast } from "sonner";
 
 
 export default function Header({ onReset, onExport, onImport, onSave }) {
-  const { toast } = useToast();
   
   const handleImport = () => {
     const input = document.createElement('input');
@@ -17,15 +16,12 @@ export default function Header({ onReset, onExport, onImport, onSave }) {
           try {
             const content = e.target?.result;
             onImport();
-            toast({
-              title: "Import successful",
-              description: "Your sketch has been imported.",
-            });
+             toast.success("Import successful", {
+               description: "Your sketch has been imported.",
+             });
           } catch (error) {
-            toast({
-              title: "Import failed",
+            toast.error("Import failed", {
               description: "Failed to import sketch. Invalid file format.",
-              variant: "destructive",
             });
           }
         };
