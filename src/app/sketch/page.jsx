@@ -8,7 +8,6 @@ import { categories } from "../../../public/assets/elements";
 import { useToast } from "../hooks/use-toast";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { Toaster } from "../components/ui/toaster";
 
 export default function page() {
   const [canvasElements, setCanvasElements] = useState([]);
