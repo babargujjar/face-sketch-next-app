@@ -4,7 +4,10 @@ export const ElementType = {
   Eyes: 'eyes',
   Nose: 'nose',
   Mouth: 'mouth',
-  Hair: 'hair'
+  Hair: 'hair',
+  Eyebrow: 'eyebrow',
+  Mutch: 'mutch',
+  Ear: 'ear',
 };
 
 // Other types defined as JSDoc comments for reference

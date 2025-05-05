@@ -10,7 +10,7 @@ export default function Sidebar({ categories, onReset }) {
   const [activeTab, setActiveTab] = useState(ElementType.Face);
 
   return (
-    <aside className="w-64 bg-white border-r border-gray-200 flex flex-col h-full overflow-hidden">
+    <aside className="max-w-72 bg-white border-r border-gray-200 flex flex-col h-full overflow-hidden">
       <div className="p-4 border-b border-gray-200">
         <h2 className="text-lg font-semibold text-gray-700">Facial Elements</h2>
         <p className="text-sm text-gray-500">Drag elements to the canvas</p>
