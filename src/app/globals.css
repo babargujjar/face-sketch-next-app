@@ -1,4 +1,16 @@
 @import "tailwindcss";
+/* globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
+/* Define a custom variable in case you want to override later */
+:root {
+  --font-sans: 'Manrope', sans-serif;
+}
+
+html,
+body {
+  font-family: var(--font-sans);
+}
 
 :root {
   --background: #ffffff;
