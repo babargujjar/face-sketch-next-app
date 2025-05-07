@@ -12,7 +12,7 @@ import { Minus, Plus } from 'lucide-react';
  * @param {function} props.onDeleteElement - Callback for deleting an element
  * @param {function} props.onSelectElement - Callback for selecting an element
  */
-export default function Canvas({ elements, onAddElement, onUpdateElement, onDeleteElement, onSelectElement }) {
+export default function Canvas({ref, elements, onAddElement, onUpdateElement, onDeleteElement, onSelectElement }) {
   // DOM reference for drop target
   const canvasNodeRef = useRef(null);
   
@@ -118,52 +118,52 @@ export default function Canvas({ elements, onAddElement, onUpdateElement, onDele
       let updatedElement = { ...currentElement };
       
       switch (resizeDirection) {
-        case 'top-right':
+        case "top-right":
           updatedElement = {
             ...updatedElement,
             position: {
               ...updatedElement.position,
-              y: elementStartData.y + dy
+              y: elementStartData.y + dy,
             },
             size: {
               width: Math.max(20, elementStartData.width + dx),
-              height: Math.max(20, elementStartData.height - dy)
-            }
+              height: Math.max(20, elementStartData.height - dy),
+            },
           };
           break;
-        case 'bottom-right':
+        case "bottom-right":
           updatedElement = {
             ...updatedElement,
             size: {
               width: Math.max(20, elementStartData.width + dx),
-              height: Math.max(20, elementStartData.height + dy)
-            }
+              height: Math.max(20, elementStartData.height + dy),
+            },
           };
           break;
-        case 'bottom-left':
+        case "bottom-left":
           updatedElement = {
             ...updatedElement,
             position: {
               ...updatedElement.position,
-              x: elementStartData.x + dx
+              x: elementStartData.x + dx,
             },
             size: {
               width: Math.max(20, elementStartData.width - dx),
-              height: Math.max(20, elementStartData.height + dy)
-            }
+              height: Math.max(20, elementStartData.height + dy),
+            },
           };
           break;
-        case 'top-left':
+        case "top-left":
           updatedElement = {
             ...updatedElement,
             position: {
               x: elementStartData.x + dx,
-              y: elementStartData.y + dy
+              y: elementStartData.y + dy,
             },
             size: {
               width: Math.max(20, elementStartData.width - dx),
-              height: Math.max(20, elementStartData.height - dy)
-            }
+              height: Math.max(20, elementStartData.height - dy),
+            },
           };
           break;
       }
@@ -203,20 +203,22 @@ export default function Canvas({ elements, onAddElement, onUpdateElement, onDele
   };
 
   return (
-    <div className="flex-1 flex flex-col">
+    <div ref={ref} className="flex-1 flex flex-col">
       <div className="p-4 bg-gray-100 border-b border-gray-200 flex items-center justify-between">
-        <div className="text-sm text-gray-500">Drag elements onto canvas and position them</div>
+        <div className="text-sm text-gray-500">
+          Drag elements onto canvas and position them
+        </div>
         <div className="flex space-x-2">
-          <Button 
-            variant="outline" 
-            size="icon" 
+          <Button
+            variant="outline"
+            size="icon"
             onClick={zoomOut}
             disabled={scale <= 0.5}
           >
             <Minus className="h-4 w-4" />
           </Button>
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             size="icon"
             onClick={zoomIn}
             disabled={scale >= 2}
@@ -225,21 +227,25 @@ export default function Canvas({ elements, onAddElement, onUpdateElement, onDele
           </Button>
         </div>
       </div>
-      
-      <div className="flex-1 bg-white p-4 overflow-hidden relative">
-        <div 
-          ref={node => {
-            // Combine the refs
+
+      <div
+        id="canvas-container"
+        onClick={() => onSelectElement(null)}
+        className="flex-1 bg-white p-4 overflow-hidden relative"
+      >
+        <div
+          ref={(node) => {
             drop(node);
             canvasNodeRef.current = node;
           }}
-          className={`canvas-container w-full h-full bg-gray-50 border border-gray-200 rounded-md relative overflow-hidden ${isOver ? 'border-primary border-2' : ''}`}
+          className={`canvas-container w-full h-full bg-gray-50 border border-gray-200 rounded-md relative overflow-hidden ${
+            isOver ? "border-primary border-2" : ""
+          }`}
           style={{
             transform: `scale(${scale})`,
-            transformOrigin: 'center center',
-            transition: 'transform 0.2s ease'
+            transformOrigin: "center center",
+            transition: "transform 0.2s ease",
           }}
-          onClick={() => onSelectElement(null)}
         >
           {elements.map((element) => (
             <CanvasElement
