@@ -97,6 +97,11 @@ export default function Header({ onReset, onExport, onImport, onSave }) {
       </Link>
 
       <div className="flex gap-2">
+        <Link href="/similerity">
+        <Button className="cursor-pointer" variant="outline" size="sm">
+          Check Similerity
+        </Button>
+        </Link>
         <Button className="cursor-pointer" variant="outline" size="sm" onClick={handleImport}>
           <Upload className="w-4 h-4 mr-1" />
           Import

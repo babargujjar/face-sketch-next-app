@@ -245,17 +245,17 @@ function getInitialSize(type) {
     case ElementType.Eyes:
       return { width: 100, height: 40 };
     case ElementType.Nose:
-      return { width: 60, height: 40 };
+      return { width: 50, height: 40 };
     case ElementType.Mouth:
       return { width: 80, height: 40 };
     case ElementType.Hair:
-      return { width: 180, height: 120 };
+      return { width: 150, height: 120 };
     case ElementType.Mutch:
       return { width: 80, height: 40 };
     case ElementType.Ear:
-      return { width: 60, height: 80 };
+      return { width: 40, height: 80 };
     case ElementType.Eyebrow:
-      return { width: 160, height: 100 };
+      return { width: 100, height: 30 };
     default:
       return { width: 100, height: 100 };
   }
