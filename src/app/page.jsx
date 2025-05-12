@@ -15,12 +15,10 @@ export default function page() {
   const canvasRef = useRef(null);
   const [canvasElements, setCanvasElements] = useState([]);
   const [selectedElement, setSelectedElement] = useState(null);
+    const [history, setHistory] = useState([]);
+     const [redoStack, setRedoStack] = useState([]);
 
-  /**
-   * Add a new element to the canvas
-   * @param {Object} element - The element to add
-   * @param {Object} position - The position to place the element
-   */
+ 
   const handleAddElement = useCallback((element, position) => {
     const newElement = {
       id: crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(),
@@ -35,40 +33,55 @@ export default function page() {
       zIndex: getZIndexForType(element.type),
     };
 
-    setCanvasElements((prev) => [...prev, newElement]);
-  }, []);
+    // Functional update to ensure consistent history snapshot
+    setCanvasElements((prevCanvasElements) => {
+      const updatedElements = [...prevCanvasElements, newElement];
 
-  /**
-   * Update an existing element on the canvas
-   * @param {Object} updatedElement - The updated element data
-   */
-  const handleUpdateElement = useCallback((updatedElement) => {
-    setCanvasElements((prev) =>
-      prev.map((element) =>
-        element.id === updatedElement.id ? updatedElement : element
-      )
-    );
-  }, []);
+      // ✅ Push previous state to history
+      setHistory((prevHistory) => [
+        ...prevHistory,
+        JSON.parse(JSON.stringify(prevCanvasElements)),
+      ]);
 
-  /**
-   * Delete an element from the canvas
-   * @param {string} elementId - The ID of the element to delete
-   */
-  const handleDeleteElement = useCallback((elementId) => {
-    setCanvasElements((prev) =>
-      prev.filter((element) => element.id !== elementId)
-    );
-    setSelectedElement(null);
-
-    toast.success("Element Deleted", {
-      description: "The element has been removed from the canvas.",
+      return updatedElements;
     });
   }, []);
+  
+  
+  const handleUpdateElement = (updatedElement) => {
+    setCanvasElements((prevElements) => {
+      setHistory((prevHistory) => [
+        ...prevHistory,
+        JSON.parse(JSON.stringify(prevElements)),
+      ]);
 
-  /**
-   * Select an element on the canvas
-   * @param {Object|null} element - The element to select, or null to deselect
-   */
+      const newElements = prevElements.map((el) =>
+        el.id === updatedElement.id ? updatedElement : el
+      );
+
+      return newElements;
+    });
+  };
+  
+  const handleDeleteElement = (idToDelete) => {
+    setCanvasElements((prevElements) => {
+      setHistory((prevHistory) => [
+        ...prevHistory,
+        JSON.parse(JSON.stringify(prevElements)),
+      ]);
+  
+      const updatedElements = prevElements.filter(
+        (element) => element.id !== idToDelete
+      );
+      toast.success("Element Deleted", {
+        description: "The element has been removed from the canvas.",
+      });
+  
+      return updatedElements;
+    });
+  };
+  
+
   const handleSelectElement = useCallback((element) => {
     setSelectedElement(element);
   }, []);
@@ -219,8 +232,13 @@ export default function page() {
           <Sidebar categories={categories} onReset={handleReset} />
 
           <Canvas
+            redoStack={redoStack}
+            setRedoStack={setRedoStack}
+            history={history}
+            setHistory={setHistory}
             ref={canvasRef}
             elements={canvasElements}
+            setElements={setCanvasElements}
             onAddElement={handleAddElement}
             onUpdateElement={handleUpdateElement}
             onDeleteElement={handleDeleteElement}

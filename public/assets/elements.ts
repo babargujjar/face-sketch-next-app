@@ -65,6 +65,15 @@ import hair9 from "./svgs/hair/09.png";
 import hair10 from "./svgs/hair/10.png";
 import hair11 from "./svgs/hair/11.png";
 import hair12 from "./svgs/hair/12.png";
+import hair13 from "./svgs/hair/13.png";
+import hair14 from "./svgs/hair/14.png";
+import hair15 from "./svgs/hair/15.png";
+import hair16 from "./svgs/hair/16.png";
+import hair17 from "./svgs/hair/17.png";
+import hair18 from "./svgs/hair/18.png";
+import hair19 from "./svgs/hair/19.png";
+import hair20 from "./svgs/hair/20.png";
+import hair21 from "./svgs/hair/21.png";
 
 // eyebrows SVGs
 import eyebrow1 from "./svgs/eyebrows/01.png";
@@ -92,6 +101,7 @@ import mutch9 from "./svgs/mutch/09.png"
 import mutch10 from "./svgs/mutch/10.png"
 import mutch11 from "./svgs/mutch/11.png"
 import mutch12 from "./svgs/mutch/12.png"
+import mutch13 from "./svgs/mutch/13.png"
 
 // ear SVGs
 import ear1 from "./svgs/ear/01.png"
@@ -520,6 +530,69 @@ export const categories = [
         src: hair12,
         label: "hair12",
       },
+      {
+        id: "hair13",
+        type: ElementType.Hair,
+        subtype: "hair13",
+        src: hair13,
+        label: "hair13",
+      },
+      {
+        id: "hair14",
+        type: ElementType.Hair,
+        subtype: "hair14",
+        src: hair14,
+        label: "hair14",
+      },
+      {
+        id: "hair15",
+        type: ElementType.Hair,
+        subtype: "hair15",
+        src: hair15,
+        label: "hair15",
+      },
+      {
+        id: "hair16",
+        type: ElementType.Hair,
+        subtype: "hair16",
+        src: hair16,
+        label: "hair16",
+      },
+      {
+        id: "hair17",
+        type: ElementType.Hair,
+        subtype: "hair17",
+        src: hair17,
+        label: "hair17",
+      },
+      {
+        id: "hair18",
+        type: ElementType.Hair,
+        subtype: "hair18",
+        src: hair18,
+        label: "hair18",
+      },
+      {
+        id: "hair19",
+        type: ElementType.Hair,
+        subtype: "hair19",
+        src: hair19,
+        label: "hair19",
+      },
+      {
+        id: "hair20",
+        type: ElementType.Hair,
+        subtype: "hair20",
+        src: hair20,
+        label: "hair20",
+      },
+      {
+        id: "hair21",
+        type: ElementType.Hair,
+        subtype: "hair21",
+        src: hair21,
+        label: "hair21",
+      },
     ],
   },
   {
@@ -692,6 +765,13 @@ export const categories = [
         subtype: "mutch12",
         src: mutch12,
         label: "mutch12",
+      },
+      {
+        id: "mutch13",
+        type: ElementType.Eyebrow,
+        subtype: "mutch13",
+        src: mutch13,
+        label: "mutch13",
       },
     ],
   },

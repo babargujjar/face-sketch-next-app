@@ -2,16 +2,9 @@ import React from 'react';
 import ResizeHandle from './ResizeHandle';
 import { Button } from '../components/ui/button';
 import { Plus, Minus, Trash2 } from 'lucide-react';
+import { HotKeys } from 'react-hotkeys';
 
-/**
- * @param {Object} props
- * @param {Object} props.element - The canvas element data
- * @param {function} props.onDragStart - Callback when dragging starts
- * @param {function} props.onResizeStart - Callback when resizing starts
- * @param {function} [props.onUpdateElement] - Callback to update element
- * @param {function} [props.onDeleteElement] - Callback to delete the element
- * @param {boolean} props.isSelected - Whether the element is selected
- */
+
 export default function CanvasElement({
   element,
   onDragStart,
@@ -19,18 +12,14 @@ export default function CanvasElement({
   onUpdateElement,
   onDeleteElement,
   isSelected,
+  onSelectElement,
+  selected,
 }) {
-  /**
-   * Handle resizing using the +/- buttons
-   * @param {'increase'|'decrease'} action - Whether to increase or decrease size
-   */
   const handleResize = (action) => {
-    if (!onUpdateElement) return; // Check if the prop exists
+    if (!onUpdateElement) return;
 
-    // Calculate scale factor
     const scaleFactor = action === "increase" ? 1.1 : 0.9;
 
-    // Create updated element with new dimensions
     const updatedElement = {
       ...element,
       size: {
@@ -39,14 +28,13 @@ export default function CanvasElement({
       },
     };
 
-    // Pass the updated element to parent component
     onUpdateElement(updatedElement);
   };
 
   return (
     <div
       className={`canvas-element absolute cursor-move ${
-        isSelected ? "ring-2 ring-primary" : "border-transparent"
+        selected ? "ring-2 ring-primary" : "border-transparent"
       }`}
       style={{
         left: element.position.x,
@@ -58,6 +46,7 @@ export default function CanvasElement({
       onMouseDown={(e) => {
         e.stopPropagation();
         onDragStart(element, e);
+        onSelectElement?.(element.id);
       }}
     >
       <img
@@ -67,7 +56,7 @@ export default function CanvasElement({
         draggable={false}
       />
 
-      {isSelected && (
+      {selected && (
         <>
           {/* Controls Toolbar */}
           <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 flex bg-white rounded-md shadow-md z-50">
