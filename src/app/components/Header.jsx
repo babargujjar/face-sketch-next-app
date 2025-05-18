@@ -59,12 +59,35 @@
 //   );
 // }
 // components/Header.tsx
+
+
 import { Button } from "../components/ui/button";
 import { toast } from "sonner";
 import { Upload, Download, Save, RefreshCw } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+
 
 export default function Header({ onReset, onExport, onImport, onSave }) {
+
+  const router = useRouter();
+
+  const handleLogout = () => {
+    toast("Are you sure you want to logout?", {
+      description: "This will remove your session.",
+      action: {
+        label: "Yes, Logout",
+        onClick: () => {
+          document.cookie = "authToken=; path=/; max-age=0";
+          router.push("/auth");
+        },
+      },
+    });
+  };
+  
+  
+
   const handleImport = () => {
     const input = document.createElement("input");
     input.type = "file";
@@ -93,24 +116,46 @@ export default function Header({ onReset, onExport, onImport, onSave }) {
   return (
     <header className="bg-white shadow-md border-b px-6 py-3 rounded-md flex justify-between items-center">
       <Link href="/">
-      <h1 className="text-2xl font-bold text-indigo-600">Face Sketch App</h1>
+        <h1 className="text-2xl font-bold text-indigo-600">Face Sketch App</h1>
       </Link>
 
       <div className="flex gap-2">
-        <Link href="/similerity">
-        <Button className="cursor-pointer" variant="outline" size="sm">
-          Check Similerity
+        <Button
+          className="cursor-pointer"
+          variant="destructive"
+          size="sm"
+          onClick={handleLogout}
+        >
+          Logout
         </Button>
+        <Link href="/similerity">
+          <Button className="cursor-pointer" variant="outline" size="sm">
+            Check Similerity
+          </Button>
         </Link>
-        <Button className="cursor-pointer" variant="outline" size="sm" onClick={handleImport}>
+        <Button
+          className="cursor-pointer"
+          variant="outline"
+          size="sm"
+          onClick={handleImport}
+        >
           <Upload className="w-4 h-4 mr-1" />
           Import
         </Button>
-        <Button className="cursor-pointer" variant="outline" size="sm" onClick={onExport}>
+        <Button
+          className="cursor-pointer"
+          variant="outline"
+          size="sm"
+          onClick={onExport}
+        >
           <Download className="w-4 h-4 mr-1" />
           Export
         </Button>
-        <Button className="cursor-pointer hover:outline" size="sm" onClick={onSave}>
+        <Button
+          className="cursor-pointer hover:outline"
+          size="sm"
+          onClick={onSave}
+        >
           <Save className="w-4 h-4 mr-1" />
           Save
         </Button>

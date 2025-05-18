@@ -14,7 +14,9 @@ export enum ElementType {
   Hair = 'hair',
   Eyebrow = 'eyebrow',
   Mutch = 'mutch',
+  Beard = 'beard',
   Ear = 'ear',
+  Mole = 'mole',
 }
 
 export interface ElementCategory {

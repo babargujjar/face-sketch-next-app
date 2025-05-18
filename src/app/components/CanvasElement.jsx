@@ -2,7 +2,6 @@ import React from 'react';
 import ResizeHandle from './ResizeHandle';
 import { Button } from '../components/ui/button';
 import { Plus, Minus, Trash2 } from 'lucide-react';
-import { HotKeys } from 'react-hotkeys';
 
 
 export default function CanvasElement({
@@ -23,8 +22,8 @@ export default function CanvasElement({
     const updatedElement = {
       ...element,
       size: {
-        width: Math.max(20, Math.round(element.size.width * scaleFactor)),
-        height: Math.max(20, Math.round(element.size.height * scaleFactor)),
+        width: Math.max(10, Math.round(element.size.width * scaleFactor)),
+        height: Math.max(10, Math.round(element.size.height * scaleFactor)),
       },
     };
 

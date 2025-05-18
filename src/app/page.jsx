@@ -15,10 +15,9 @@ export default function page() {
   const canvasRef = useRef(null);
   const [canvasElements, setCanvasElements] = useState([]);
   const [selectedElement, setSelectedElement] = useState(null);
-    const [history, setHistory] = useState([]);
-     const [redoStack, setRedoStack] = useState([]);
+  const [history, setHistory] = useState([]);
+  const [redoStack, setRedoStack] = useState([]);
 
- 
   const handleAddElement = useCallback((element, position) => {
     const newElement = {
       id: crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(),
@@ -46,8 +45,7 @@ export default function page() {
       return updatedElements;
     });
   }, []);
-  
-  
+
   const handleUpdateElement = (updatedElement) => {
     setCanvasElements((prevElements) => {
       setHistory((prevHistory) => [
@@ -62,25 +60,24 @@ export default function page() {
       return newElements;
     });
   };
-  
+
   const handleDeleteElement = (idToDelete) => {
     setCanvasElements((prevElements) => {
       setHistory((prevHistory) => [
         ...prevHistory,
         JSON.parse(JSON.stringify(prevElements)),
       ]);
-  
+
       const updatedElements = prevElements.filter(
         (element) => element.id !== idToDelete
       );
       toast.success("Element Deleted", {
         description: "The element has been removed from the canvas.",
       });
-  
+
       return updatedElements;
     });
   };
-  
 
   const handleSelectElement = useCallback((element) => {
     setSelectedElement(element);
@@ -120,84 +117,6 @@ export default function page() {
   const handleImport = useCallback(() => {
     // Actual import functionality is in the Header component
   }, []);
-  
-
-  // const handleSave = useCallback(() => {
-  //   if (canvasElements.length === 0) {
-  //     toast.error("Nothing to save", {
-  //       description: "Add some elements to the canvas first.",
-  //     });
-  //     return;
-  //   }
-
-  //   // Create a temporary canvas with fixed dimensions (or use your preferred size)
-  //   const tempCanvas = document.createElement("canvas");
-  //   const canvasWidth = 800; // Adjust to your canvas size
-  //   const canvasHeight = 600; // Adjust to your canvas size
-  //   tempCanvas.width = canvasWidth;
-  //   tempCanvas.height = canvasHeight;
-  //   const ctx = tempCanvas.getContext("2d");
-
-  //   if (!ctx) {
-  //     toast.error("Save failed", {
-  //       description: "Could not create canvas context.",
-  //     });
-  //     return;
-  //   }
-
-  //   // Set white background
-  //   ctx.fillStyle = "#ffffff";
-  //   ctx.fillRect(0, 0, canvasWidth, canvasHeight);
-
-  //   // Sort elements by z-index (same as your rendering logic)
-  //   const sortedElements = [...canvasElements].sort(
-  //     (a, b) => a.zIndex - b.zIndex
-  //   );
-
-  //   // Draw each element in z-index order
-  //   const loadPromises = sortedElements.map((element) => {
-  //     return new Promise((resolve) => {
-  //       const img = new Image();
-  //       img.crossOrigin = "Anonymous"; // Important for some external images
-  //       img.onload = () => {
-  //         ctx.drawImage(
-  //           img,
-  //           element.position.x,
-  //           element.position.y,
-  //           element.size.width,
-  //           element.size.height
-  //         );
-  //         resolve();
-  //       };
-  //       img.onerror = () => {
-  //         console.error(`Failed to load image: ${element.src}`);
-  //         // Draw a placeholder rectangle if image fails to load
-  //         ctx.fillStyle = "#ff0000";
-  //         ctx.fillRect(
-  //           element.position.x,
-  //           element.position.y,
-  //           element.size.width,
-  //           element.size.height
-  //         );
-  //         resolve();
-  //       };
-  //       img.src = element.src.src || element.src;
-  //     });
-  //   });
-
-  //   Promise.all(loadPromises).then(() => {
-  //     // Create download link
-  //     const imageDataURL = tempCanvas.toDataURL("image/png");
-  //     const link = document.createElement("a");
-  //     link.download = "face-sketch.png";
-  //     link.href = imageDataURL;
-  //     link.click();
-
-  //     toast.success("Save successful", {
-  //       description: "Your sketch has been saved as a PNG image.",
-  //     });
-  //   });
-  // }, [canvasElements]);
 
   const handleSave = () => {
     const canvasArea = document.getElementById("canvas-container");
@@ -274,6 +193,11 @@ function getInitialSize(type) {
       return { width: 40, height: 80 };
     case ElementType.Eyebrow:
       return { width: 100, height: 30 };
+    case ElementType.Mole:
+      return { width: 10, height: 10 };
+    case ElementType.Beard:
+      return { width: 150, height: 100 };
+      z;
     default:
       return { width: 100, height: 100 };
   }
@@ -301,7 +225,11 @@ function getZIndexForType(type) {
     case ElementType.Ear:
       return 2;
     case ElementType.Eyebrow:
+      return 4;
+    case ElementType.Beard:
       return 3;
+    case ElementType.Mole:
+      return 5;
     default:
       return 1;
   }

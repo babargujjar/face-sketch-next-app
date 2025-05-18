@@ -89,25 +89,33 @@ import eyebrow11 from "./svgs/eyebrows/11.png";
 import eyebrow12 from "./svgs/eyebrows/12.png";
 
 // mutch SVGs
-import mutch1 from "./svgs/mutch/01.png"
-import mutch2 from "./svgs/mutch/02.png"
-import mutch3 from "./svgs/mutch/03.png"
-import mutch4 from "./svgs/mutch/04.png"
-import mutch5 from "./svgs/mutch/05.png"
-import mutch6 from "./svgs/mutch/06.png"
-import mutch7 from "./svgs/mutch/07.png"
-import mutch8 from "./svgs/mutch/08.png"
-import mutch9 from "./svgs/mutch/09.png"
-import mutch10 from "./svgs/mutch/10.png"
-import mutch11 from "./svgs/mutch/11.png"
-import mutch12 from "./svgs/mutch/12.png"
-import mutch13 from "./svgs/mutch/13.png"
+import mutch1 from "./svgs/mutch/01.png";
+import mutch2 from "./svgs/mutch/02.png";
+import mutch3 from "./svgs/mutch/03.png";
+import mutch4 from "./svgs/mutch/04.png";
+import mutch5 from "./svgs/mutch/05.png";
+import mutch6 from "./svgs/mutch/06.png";
+import mutch7 from "./svgs/mutch/13.png";
+
+// beard
+import beard1 from "./svgs/mutch/07.png";
+import beard2 from "./svgs/mutch/08.png";
+import beard3 from "./svgs/mutch/09.png";
+import beard4 from "./svgs/mutch/10.png";
+import beard5 from "./svgs/mutch/11.png";
+import beard6 from "./svgs/mutch/12.png";
+import beard7 from "./svgs/mutch/14.png";
+import beard8 from "./svgs/mutch/15.png";
 
 // ear SVGs
-import ear1 from "./svgs/ear/01.png"
-import ear2 from "./svgs/ear/02.png"
-import ear3 from "./svgs/ear/03.png"
-import ear4 from "./svgs/ear/04.png"
+import ear1 from "./svgs/ear/01.png";
+import ear2 from "./svgs/ear/02.png";
+import ear3 from "./svgs/ear/03.png";
+import ear4 from "./svgs/ear/04.png";
+
+import mole1 from "./svgs/mole/mole.png";
+import mole2 from "./svgs/mole/mole2.png";
+import mole3 from "./svgs/mole/mole3.png";
 
 export const categories = [
   {
@@ -354,7 +362,7 @@ export const categories = [
   },
   {
     type: ElementType.Mouth,
-    label: "Mouth",
+    label: "Lips",
     elements: [
       {
         id: "lips1",
@@ -439,6 +447,267 @@ export const categories = [
         subtype: "lips12",
         src: lips12,
         label: "lips12",
+      },
+    ],
+  },
+  {
+    type: ElementType.Eyebrow,
+    label: "Eyebrow",
+    elements: [
+      {
+        id: "eyebrows1",
+        type: ElementType.Eyebrow,
+        subtype: "eyebrows1",
+        src: eyebrow1,
+        label: "eyebrows1",
+      },
+      {
+        id: "eyebrows2",
+        type: ElementType.Eyebrow,
+        subtype: "eyebrows2",
+        src: eyebrow3,
+        label: "eyebrows2",
+      },
+      {
+        id: "eyebrows3",
+        type: ElementType.Eyebrow,
+        subtype: "eyebrows3",
+        src: eyebrow4,
+        label: "eyebrows3",
+      },
+      {
+        id: "eyebrows4",
+        type: ElementType.Eyebrow,
+        subtype: "eyebrows4",
+        src: eyebrow5,
+        label: "eyebrows4",
+      },
+      {
+        id: "eyebrows5",
+        type: ElementType.Eyebrow,
+        subtype: "eyebrows5",
+        src: eyebrow6,
+        label: "eyebrows5",
+      },
+      {
+        id: "eyebrows6",
+        type: ElementType.Eyebrow,
+        subtype: "eyebrows6",
+        src: eyebrow7,
+        label: "eyebrows6",
+      },
+      {
+        id: "eyebrows7",
+        type: ElementType.Eyebrow,
+        subtype: "eyebrows7",
+        src: eyebrow8,
+        label: "eyebrows7",
+      },
+      {
+        id: "eyebrows8",
+        type: ElementType.Eyebrow,
+        subtype: "eyebrows8",
+        src: eyebrow9,
+        label: "eyebrows8",
+      },
+      {
+        id: "eyebrows9",
+        type: ElementType.Eyebrow,
+        subtype: "eyebrows9",
+        src: eyebrow10,
+        label: "eyebrows9",
+      },
+      {
+        id: "eyebrows10",
+        type: ElementType.Eyebrow,
+        subtype: "eyebrows10",
+        src: eyebrow11,
+        label: "eyebrows10",
+      },
+      {
+        id: "eyebrows11",
+        type: ElementType.Eyebrow,
+        subtype: "eyebrows11",
+        src: eyebrow12,
+        label: "eyebrows11",
+      },
+    ],
+  },
+  {
+    type: ElementType.Mutch,
+    label: "Mutch",
+    elements: [
+      {
+        id: "mutch1",
+        type: ElementType.Eyebrow,
+        subtype: "mutch1",
+        src: mutch1,
+        label: "mutch1",
+      },
+      {
+        id: "mutch2",
+        type: ElementType.Eyebrow,
+        subtype: "mutch2",
+        src: mutch2,
+        label: "mutch2",
+      },
+      {
+        id: "mutch3",
+        type: ElementType.Eyebrow,
+        subtype: "mutch3",
+        src: mutch3,
+        label: "mutch3",
+      },
+      {
+        id: "mutch4",
+        type: ElementType.Eyebrow,
+        subtype: "mutch4",
+        src: mutch4,
+        label: "mutch4",
+      },
+      {
+        id: "mutch5",
+        type: ElementType.Eyebrow,
+        subtype: "mutch5",
+        src: mutch5,
+        label: "mutch5",
+      },
+      {
+        id: "mutch6",
+        type: ElementType.Eyebrow,
+        subtype: "mutch6",
+        src: mutch6,
+        label: "mutch6",
+      },
+      {
+        id: "mutch7",
+        type: ElementType.Eyebrow,
+        subtype: "mutch7",
+        src: mutch7,
+        label: "mutch7",
+      },
+    ],
+  },
+  {
+    type: ElementType.Ear,
+    label: "Ear",
+    elements: [
+      {
+        id: "ear1",
+        type: ElementType.Ear,
+        subtype: "ear1",
+        src: ear1,
+        label: "ear1",
+      },
+      {
+        id: "ear2",
+        type: ElementType.Ear,
+        subtype: "ear2",
+        src: ear2,
+        label: "ear2",
+      },
+      {
+        id: "ear3",
+        type: ElementType.Ear,
+        subtype: "ear3",
+        src: ear3,
+        label: "ear3",
+      },
+      {
+        id: "ear4",
+        type: ElementType.Ear,
+        subtype: "ear4",
+        src: ear4,
+        label: "ear4",
+      },
+    ],
+  },
+  {
+    type: ElementType.Beard,
+    label: "Beard",
+    elements: [
+      {
+        id: "beard1",
+        type: ElementType.Beard,
+        subtype: "beard1",
+        src: beard1,
+        label: "beard1",
+      },
+      {
+        id: "beard2",
+        type: ElementType.Beard,
+        subtype: "beard2",
+        src: beard2,
+        label: "beard2",
+      },
+      {
+        id: "beard3",
+        type: ElementType.Beard,
+        subtype: "beard3",
+        src: beard3,
+        label: "beard3",
+      },
+      {
+        id: "beard4",
+        type: ElementType.Beard,
+        subtype: "beard4",
+        src: beard4,
+        label: "beard4",
+      },
+      {
+        id: "beard5",
+        type: ElementType.Beard,
+        subtype: "beard5",
+        src: beard5,
+        label: "beard5",
+      },
+      {
+        id: "beard6",
+        type: ElementType.Beard,
+        subtype: "beard6",
+        src: beard6,
+        label: "beard6",
+      },
+      {
+        id: "beard7",
+        type: ElementType.Beard,
+        subtype: "beard7",
+        src: beard7,
+        label: "beard7",
+      },
+      {
+        id: "beard8",
+        type: ElementType.Beard,
+        subtype: "beard8",
+        src: beard8,
+        label: "beard8",
+      },
+    ],
+  },
+  {
+    type: ElementType.Mole,
+    label: "Mole",
+    elements: [
+      {
+        id: "mole1",
+        type: ElementType.Mole,
+        subtype: "mole1",
+        src: mole1,
+        label: "Mole1",
+      },
+      {
+        id: "mole2",
+        type: ElementType.Mole,
+        subtype: "mole2",
+        src: mole2,
+        label: "Mole2",
+      },
+      {
+        id: "mole3",
+        type: ElementType.Mole,
+        subtype: "mole3",
+        src: mole3,
+        label: "Mole3",
       },
     ],
   },
@@ -592,220 +861,6 @@ export const categories = [
         subtype: "hair21",
         src: hair21,
         label: "hair21",
-      },
-    ],
-  },
-  {
-    type: ElementType.Eyebrow,
-    label: "Eyebrow",
-    elements: [
-      {
-        id: "eyebrows1",
-        type: ElementType.Eyebrow,
-        subtype: "eyebrows1",
-        src: eyebrow1,
-        label: "eyebrows1",
-      },
-      {
-        id: "eyebrows2",
-        type: ElementType.Eyebrow,
-        subtype: "eyebrows2",
-        src: eyebrow3,
-        label: "eyebrows2",
-      },
-      {
-        id: "eyebrows3",
-        type: ElementType.Eyebrow,
-        subtype: "eyebrows3",
-        src: eyebrow4,
-        label: "eyebrows3",
-      },
-      {
-        id: "eyebrows4",
-        type: ElementType.Eyebrow,
-        subtype: "eyebrows4",
-        src: eyebrow5,
-        label: "eyebrows4",
-      },
-      {
-        id: "eyebrows5",
-        type: ElementType.Eyebrow,
-        subtype: "eyebrows5",
-        src: eyebrow6,
-        label: "eyebrows5",
-      },
-      {
-        id: "eyebrows6",
-        type: ElementType.Eyebrow,
-        subtype: "eyebrows6",
-        src: eyebrow7,
-        label: "eyebrows6",
-      },
-      {
-        id: "eyebrows7",
-        type: ElementType.Eyebrow,
-        subtype: "eyebrows7",
-        src: eyebrow8,
-        label: "eyebrows7",
-      },
-      {
-        id: "eyebrows8",
-        type: ElementType.Eyebrow,
-        subtype: "eyebrows8",
-        src: eyebrow9,
-        label: "eyebrows8",
-      },
-      {
-        id: "eyebrows9",
-        type: ElementType.Eyebrow,
-        subtype: "eyebrows9",
-        src: eyebrow10,
-        label: "eyebrows9",
-      },
-      {
-        id: "eyebrows10",
-        type: ElementType.Eyebrow,
-        subtype: "eyebrows10",
-        src: eyebrow11,
-        label: "eyebrows10",
-      },
-      {
-        id: "eyebrows11",
-        type: ElementType.Eyebrow,
-        subtype: "eyebrows11",
-        src: eyebrow12,
-        label: "eyebrows11",
-      },
-    ],
-  },
-  {
-    type: ElementType.Mutch,
-    label: "Mutch",
-    elements: [
-      {
-        id: "mutch1",
-        type: ElementType.Eyebrow,
-        subtype: "mutch1",
-        src: mutch1,
-        label: "mutch1",
-      },
-      {
-        id: "mutch2",
-        type: ElementType.Eyebrow,
-        subtype: "mutch2",
-        src: mutch2,
-        label: "mutch2",
-      },
-      {
-        id: "mutch3",
-        type: ElementType.Eyebrow,
-        subtype: "mutch3",
-        src: mutch3,
-        label: "mutch3",
-      },
-      {
-        id: "mutch4",
-        type: ElementType.Eyebrow,
-        subtype: "mutch4",
-        src: mutch4,
-        label: "mutch4",
-      },
-      {
-        id: "mutch5",
-        type: ElementType.Eyebrow,
-        subtype: "mutch5",
-        src: mutch5,
-        label: "mutch5",
-      },
-      {
-        id: "mutch6",
-        type: ElementType.Eyebrow,
-        subtype: "mutch6",
-        src: mutch6,
-        label: "mutch6",
-      },
-      {
-        id: "mutch7",
-        type: ElementType.Eyebrow,
-        subtype: "mutch7",
-        src: mutch7,
-        label: "mutch7",
-      },
-      {
-        id: "mutch8",
-        type: ElementType.Eyebrow,
-        subtype: "mutch8",
-        src: mutch8,
-        label: "mutch8",
-      },
-      {
-        id: "mutch9",
-        type: ElementType.Eyebrow,
-        subtype: "mutch9",
-        src: mutch9,
-        label: "mutch9",
-      },
-      {
-        id: "mutch10",
-        type: ElementType.Eyebrow,
-        subtype: "mutch10",
-        src: mutch10,
-        label: "mutch10",
-      },
-      {
-        id: "mutch11",
-        type: ElementType.Eyebrow,
-        subtype: "mutch11",
-        src: mutch11,
-        label: "mutch11",
-      },
-      {
-        id: "mutch12",
-        type: ElementType.Eyebrow,
-        subtype: "mutch12",
-        src: mutch12,
-        label: "mutch12",
-      },
-      {
-        id: "mutch13",
-        type: ElementType.Eyebrow,
-        subtype: "mutch13",
-        src: mutch13,
-        label: "mutch13",
-      },
-    ],
-  },
-  {
-    type: ElementType.Ear,
-    label: "Ear",
-    elements: [
-      {
-        id: "ear1",
-        type: ElementType.Ear,
-        subtype: "ear1",
-        src: ear1,
-        label: "ear1",
-      },
-      {
-        id: "ear2",
-        type: ElementType.Ear,
-        subtype: "ear2",
-        src: ear2,
-        label: "ear2",
-      },
-      {
-        id: "ear3",
-        type: ElementType.Ear,
-        subtype: "ear3",
-        src: ear3,
-        label: "ear3",
-      },
-      {
-        id: "ear4",
-        type: ElementType.Ear,
-        subtype: "ear4",
-        src: ear4,
-        label: "ear4",
       },
     ],
   },

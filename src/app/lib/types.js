@@ -7,7 +7,9 @@ export const ElementType = {
   Hair: 'hair',
   Eyebrow: 'eyebrow',
   Mutch: 'mutch',
+  Beard: 'beard',
   Ear: 'ear',
+  Mole: 'mole',
 };
 
 // Other types defined as JSDoc comments for reference

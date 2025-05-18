@@ -5,7 +5,6 @@
 // import { Button } from "../components/ui/button";
 // import { cn } from "../lib/utils";
 
-
 // export default function Sidebar({ categories, onReset }) {
 //   const [activeTab, setActiveTab] = useState(ElementType.Face);
 
@@ -15,7 +14,7 @@
 //         <h2 className="text-lg font-semibold text-gray-700">Facial Elements</h2>
 //         <p className="text-sm text-gray-500">Drag elements to the canvas</p>
 //       </div>
-      
+
 //       <div className="flex-1 overflow-y-auto">
 //         {/* Category tabs */}
 //         <div className="border-b border-gray-200">
@@ -36,7 +35,7 @@
 //             ))}
 //           </nav>
 //         </div>
-        
+
 //         {/* Category content */}
 //         {categories.map((category) => (
 //           <div
@@ -52,11 +51,11 @@
 //           </div>
 //         ))}
 //       </div>
-      
+
 //       <div className="p-3 border-t border-gray-200">
-//         <Button 
-//           variant="destructive" 
-//           className="w-full" 
+//         <Button
+//           variant="destructive"
+//           className="w-full"
 //           onClick={onReset}
 //         >
 //           Reset Canvas
@@ -65,7 +64,6 @@
 //     </aside>
 //   );
 // }
-
 
 // function ElementItem({ element }) {
 //   const [{ isDragging }, drag] = useDrag(() => ({
@@ -86,10 +84,10 @@
 //       data-element={element.type}
 //       data-type={element.subtype}
 //     >
-//       <img 
-//         src={element.src.src} 
-//         alt={`${element.subtype} ${element.type}`} 
-//         className="w-full h-20 object-contain rounded mb-1" 
+//       <img
+//         src={element.src.src}
+//         alt={`${element.subtype} ${element.type}`}
+//         className="w-full h-20 object-contain rounded mb-1"
 //       />
 //       <span className="text-xs text-gray-600">{element.label}</span>
 //     </div>

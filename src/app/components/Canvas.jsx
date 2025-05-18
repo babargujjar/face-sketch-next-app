@@ -343,6 +343,10 @@ const Canvas = forwardRef(function Canvas(
     MOVE_DOWN: () => moveElement(0, 5),
   };
 
+  const handleCanvasClick = () => {
+    setSelectedId(null); 
+  };
+
 
   return (
     <HotKeys
@@ -353,10 +357,14 @@ const Canvas = forwardRef(function Canvas(
       className="flex-1 flex flex-col"
       tabIndex={0}
     >
-      <div ref={ref} className="flex-1 flex flex-col">
+      <div
+        ref={ref}
+        onMouseDown={handleCanvasClick}
+        className="flex-1 flex flex-col"
+      >
         <div className="p-4 bg-gray-100 border-b border-gray-200 flex items-center justify-between">
           <div className="text-sm text-gray-500">
-            Drag elements onto canvas and position them (Undo: Ctrl+Z)
+            Drag elements onto canvas and position them 
           </div>
           <div className="flex space-x-2">
             <Button
@@ -405,7 +413,7 @@ const Canvas = forwardRef(function Canvas(
                 onResizeStart={handleResizeStart}
                 onUpdateElement={onUpdateElement}
                 onDeleteElement={onDeleteElement}
-                selected={currentElement?.id === element.id}
+                selected={selectedId === element.id}
                 onClick={() => handleElementClick(element)}
                 isSelected={selectedElement?.id === element.id}
                 onSelectElement={setSelectedId}
