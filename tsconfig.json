@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/middleware.js", "src/app/components/ui/calendar.jsx", "src/app/components/ui/chart.jsx", "src/app/components/ui/toast.jsx"  ],
+, "src/middleware.js", "src/app/components/ui/calendar.jsx", "src/app/components/ui/chart.jsx", "src/app/components/ui/toast.jsx", "src/app/hooks/use-toast.js"  ],
   "exclude": [
     "node_modules"
   ]
