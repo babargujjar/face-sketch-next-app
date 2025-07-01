@@ -40,7 +40,7 @@ export default function LoginForm({ switchToSignup }) {
           required
           type="email"
           placeholder="Email"
-          className="inputcss"
+          className="inputcss text-black"
         />
         <input
           type="password"
@@ -48,7 +48,7 @@ export default function LoginForm({ switchToSignup }) {
           onChange={(e) => setPassword(e.target.value)}
           required
           placeholder="Password"
-          className="inputcss"
+          className="inputcss text-black"
         />
 
         <button
