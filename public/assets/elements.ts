@@ -24,6 +24,7 @@ import eye8 from "./svgs/eyes/eye8.png";
 import eye9 from "./svgs/eyes/eye9.png";
 import eye10 from "./svgs/eyes/eye10.png";
 import eye11 from "./svgs/eyes/eye11.png";
+import eye12 from "./svgs/eyes/eye12.png";
 
 // Nose SVGs
 import nose1 from "./svgs/nose/01.png";
@@ -37,6 +38,7 @@ import nose8 from "./svgs/nose/08.png";
 import nose9 from "./svgs/nose/09.png";
 import nose10 from "./svgs/nose/10.png";
 import nose11 from "./svgs/nose/11.png";
+import nose12 from "./svgs/nose/12.png";
 
 // Lips SVGs
 import lips1 from "./svgs/lips/01.png";
@@ -51,6 +53,7 @@ import lips9 from "./svgs/lips/09.png";
 import lips10 from "./svgs/lips/10.png";
 import lips11 from "./svgs/lips/11.png";
 import lips12 from "./svgs/lips/12.png";
+import lips13 from "./svgs/lips/13.png";
 
 // Hair SVGs
 import hair1 from "./svgs/hair/01.png";
@@ -74,6 +77,7 @@ import hair18 from "./svgs/hair/18.png";
 import hair19 from "./svgs/hair/19.png";
 import hair20 from "./svgs/hair/20.png";
 import hair21 from "./svgs/hair/21.png";
+import hair22 from "./svgs/hair/22.png";
 
 // eyebrows SVGs
 import eyebrow1 from "./svgs/eyebrows/01.png";
@@ -87,6 +91,7 @@ import eyebrow9 from "./svgs/eyebrows/09.png";
 import eyebrow10 from "./svgs/eyebrows/10.png";
 import eyebrow11 from "./svgs/eyebrows/11.png";
 import eyebrow12 from "./svgs/eyebrows/12.png";
+import eyebrow13 from "./svgs/eyebrows/13.png";
 
 // mutch SVGs
 import mutch1 from "./svgs/mutch/01.png";
@@ -96,6 +101,7 @@ import mutch4 from "./svgs/mutch/04.png";
 import mutch5 from "./svgs/mutch/05.png";
 import mutch6 from "./svgs/mutch/06.png";
 import mutch7 from "./svgs/mutch/13.png";
+import mutch8 from "./svgs/mutch/16.png";
 
 // beard
 import beard1 from "./svgs/mutch/07.png";
@@ -106,12 +112,15 @@ import beard5 from "./svgs/mutch/11.png";
 import beard6 from "./svgs/mutch/12.png";
 import beard7 from "./svgs/mutch/14.png";
 import beard8 from "./svgs/mutch/15.png";
+import beard9 from "./svgs/mutch/17.png";
 
 // ear SVGs
 import ear1 from "./svgs/ear/01.png";
 import ear2 from "./svgs/ear/02.png";
 import ear3 from "./svgs/ear/03.png";
 import ear4 from "./svgs/ear/04.png";
+import ear5 from "./svgs/ear/05.png";
+import ear6 from "./svgs/ear/06.png";
 
 import mole1 from "./svgs/mole/mole.png";
 import mole2 from "./svgs/mole/mole2.png";
@@ -275,6 +284,13 @@ export const categories = [
         src: eye11,
         label: "eye11",
       },
+      {
+        id: "eye12",
+        type: ElementType.Eyes,
+        subtype: "eye12",
+        src: eye12,
+        label: "eye12",
+      },
     ],
   },
   {
@@ -357,6 +373,13 @@ export const categories = [
         subtype: "nose11",
         src: nose11,
         label: "nose11",
+      },
+      {
+        id: "nose12",
+        type: ElementType.Nose,
+        subtype: "nose12",
+        src: nose12,
+        label: "nose12",
       },
     ],
   },
@@ -448,6 +471,13 @@ export const categories = [
         src: lips12,
         label: "lips12",
       },
+      {
+        id: "lips13",
+        type: ElementType.Mouth,
+        subtype: "lips13",
+        src: lips13,
+        label: "lips13",
+      },
     ],
   },
   {
@@ -531,6 +561,13 @@ export const categories = [
         src: eyebrow12,
         label: "eyebrows11",
       },
+      {
+        id: "eyebrows12",
+        type: ElementType.Eyebrow,
+        subtype: "eyebrows12",
+        src: eyebrow13,
+        label: "eyebrows12",
+      },
     ],
   },
   {
@@ -586,6 +623,13 @@ export const categories = [
         src: mutch7,
         label: "mutch7",
       },
+      {
+        id: "mutch8",
+        type: ElementType.Eyebrow,
+        subtype: "mutch8",
+        src: mutch8,
+        label: "mutch8",
+      },
     ],
   },
   {
@@ -619,6 +663,20 @@ export const categories = [
         subtype: "ear4",
         src: ear4,
         label: "ear4",
+      },
+      {
+        id: "ear5",
+        type: ElementType.Ear,
+        subtype: "ear5",
+        src: ear5,
+        label: "ear5",
+      },
+      {
+        id: "ear6",
+        type: ElementType.Ear,
+        subtype: "ear6",
+        src: ear6,
+        label: "ear6",
       },
     ],
   },
@@ -681,6 +739,13 @@ export const categories = [
         subtype: "beard8",
         src: beard8,
         label: "beard8",
+      },
+      {
+        id: "beard9",
+        type: ElementType.Beard,
+        subtype: "beard9",
+        src: beard9,
+        label: "beard9",
       },
     ],
   },
@@ -861,6 +926,13 @@ export const categories = [
         subtype: "hair21",
         src: hair21,
         label: "hair21",
+      },
+      {
+        id: "hair22",
+        type: ElementType.Hair,
+        subtype: "hair22",
+        src: hair22,
+        label: "hair22",
       },
     ],
   },

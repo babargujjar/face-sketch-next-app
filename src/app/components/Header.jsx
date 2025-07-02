@@ -4,10 +4,7 @@ import { Upload, Download, Save } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-
-
 export default function Header({ onReset, onExport, onImport, onSave }) {
-
   const router = useRouter();
 
   const handleLogout = () => {
@@ -22,8 +19,6 @@ export default function Header({ onReset, onExport, onImport, onSave }) {
       },
     });
   };
-  
-  
 
   const handleImport = () => {
     const input = document.createElement("input");
@@ -51,29 +46,34 @@ export default function Header({ onReset, onExport, onImport, onSave }) {
   };
 
   return (
-    <header className="bg-green-600 shadow-md  px-6 py-3 flex justify-between items-center"
-    >
+    <header className="bg-gradient-to-r from-indigo-700 via-purple-600 to-pink-500 shadow-lg px-6 py-4 flex justify-between items-center">
       <Link href="/">
-        <h1 className="text-2xl font-bold text-white">Face Sketch App</h1>
+        <h1 className="text-2xl font-bold text-white tracking-wide drop-shadow-sm">
+          🎨 Forensic Face Sketch
+        </h1>
       </Link>
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 flex-wrap">
         <Button
-          className="cursor-pointer hover:outline"
-          variant="outline"
+          className="hover:brightness-110 cursor-pointer transition"
+          variant="ghost"
           size="sm"
           onClick={handleLogout}
         >
           Logout
         </Button>
         <Link href="/similerity">
-          <Button className="cursor-pointer hover:outline" variant="outline" size="sm">
-            Check Similerity
+          <Button
+            className="hover:brightness-110 cursor-pointer transition"
+            variant="ghost"
+            size="sm"
+          >
+            Check Similarity
           </Button>
         </Link>
         <Button
-          className="cursor-pointer hover:outline"
-          variant="outline"
+          className="hover:brightness-110 cursor-pointer transition"
+          variant="ghost"
           size="sm"
           onClick={handleImport}
         >
@@ -81,8 +81,8 @@ export default function Header({ onReset, onExport, onImport, onSave }) {
           Import
         </Button>
         <Button
-          className="cursor-pointer hover:outline"
-          variant="outline"
+          className="hover:brightness-110 cursor-pointer transition"
+          variant="ghost"
           size="sm"
           onClick={onExport}
         >
@@ -90,9 +90,9 @@ export default function Header({ onReset, onExport, onImport, onSave }) {
           Export
         </Button>
         <Button
-          className="cursor-pointer hover:outline"
+          className="hover:brightness-110 cursor-pointer transition"
           size="sm"
-          variant="outline"
+          variant="ghost"
           onClick={onSave}
         >
           <Save className="w-4 h-4 mr-1" />

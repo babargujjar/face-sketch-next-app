@@ -13,26 +13,37 @@ body {
   --background: #ffffff;
   --foreground: #171717;
 }
-
-/* Custom horizontal scrollbar */
+/* Custom dark scrollbar for AI UI */
 .scrollbar-custom {
   scrollbar-width: thin;
-  scrollbar-color: #16a34a #f9fafb;
-  /* thumb and track */
+  scrollbar-color: #6366f1 #1f2937;
+  /* thumb color + track color */
 }
 
+/* WebKit Scrollbar */
 .scrollbar-custom::-webkit-scrollbar {
+  width: 6px;
   height: 6px;
 }
 
 .scrollbar-custom::-webkit-scrollbar-track {
-  background: #f9fafb;
+  background: #1f2937;
+  /* Dark track */
   border-radius: 8px;
 }
 
 .scrollbar-custom::-webkit-scrollbar-thumb {
-  background-color: #022bf7;
+  background-color: #6366f1;
+  /* Indigo thumb */
   border-radius: 8px;
+  border: 2px solid #1f2937;
+  /* Clean edge blend */
+}
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: #6366f1;
+  border-radius: 8px;
+  border: 2px solid #1f2937;
+  box-shadow: 0 0 4px #6366f1;
 }
 
 .inputcss {

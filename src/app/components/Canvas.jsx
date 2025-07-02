@@ -362,24 +362,26 @@ const Canvas = forwardRef(function Canvas(
         onMouseDown={handleCanvasClick}
         className="flex-1 flex flex-col"
       >
-        <div className="p-4 bg-gray-100 border-b border-gray-200 flex items-center justify-between">
-          <div className="text-sm text-gray-500">
-            Drag elements onto canvas and position them 
+        <div className="p-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white border-b border-indigo-800 flex items-center justify-between shadow-sm">
+          <div className="text-sm font-medium tracking-wide">
+            🧠 Drag facial elements onto the canvas and sketch!
           </div>
-          <div className="flex space-x-2">
+          <div className="flex gap-2">
             <Button
-              variant="outline"
+              variant="ghost"
               size="icon"
               onClick={zoomOut}
               disabled={scale <= 0.5}
+              className="hover:bg-white/20 text-white border-white border"
             >
               <Minus className="h-4 w-4" />
             </Button>
             <Button
-              variant="outline"
+              variant="ghost"
               size="icon"
               onClick={zoomIn}
               disabled={scale >= 2}
+              className="hover:bg-white/20 text-white border-white border"
             >
               <Plus className="h-4 w-4" />
             </Button>

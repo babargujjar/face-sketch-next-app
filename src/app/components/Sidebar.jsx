@@ -9,25 +9,27 @@ export default function Sidebar({ categories, onReset }) {
   const [activeTab, setActiveTab] = useState(ElementType.Face);
 
   return (
-    <aside className="max-w-72 bg-white border-r border-gray-200 flex flex-col h-full overflow-hidden">
-      <div className="p-4 bg-cover bg-center"
-  style={{ backgroundImage: "url('/assets/svgs/bg2.jpg')" }}>
-        <h2 className="text-lg font-semibold text-white">Facial Elements</h2>
-        <p className="text-sm text-white">Drag elements to the canvas</p>
+    <aside className="w-72 bg-[#111827] text-white flex flex-col h-full shadow-2xl border-r border-gray-800">
+      {/* Header */}
+      <div className="px-5 py-4 bg-gradient-to-r from-indigo-600 to-purple-700 rounded-b-lg">
+        <h2 className="text-xl font-bold">Sketch Builder</h2>
+        <p className="text-sm text-slate-200 opacity-75">
+          Drag elements to canvas
+        </p>
       </div>
 
       {/* Tabs */}
-      <div className=" px-2 py-1 bg-gray-50">
-        <nav className="flex space-x-1 overflow-x-auto scrollbar-custom">
+      <div className="bg-[#1f2937] px-4 py-2 border-b border-gray-700">
+        <nav className="flex space-x-2 pb-2 overflow-x-auto scrollbar-custom scrollbar-thin scrollbar-thumb-gray-700">
           {categories.map((category) => (
             <button
               key={category.type}
               onClick={() => setActiveTab(category.type)}
               className={cn(
-                "px-3 py-2 cursor-pointer text-sm rounded-md transition-all my-2",
+                "px-3 py-1.5 rounded-md text-sm font-medium transition-all",
                 activeTab === category.type
-                  ? "bg-green-600 text-white font-medium shadow-sm"
-                  : "text-gray-600 hover:bg-gray-100"
+                  ? "bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-md"
+                  : "bg-gray-800 text-slate-300 hover:bg-gray-700"
               )}
             >
               {category.label}
@@ -37,12 +39,12 @@ export default function Sidebar({ categories, onReset }) {
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto scrollbar-custom ">
+      <div className="flex-1 overflow-y-auto scrollbar-custom p-4 scrollbar-thin scrollbar-thumb-gray-700">
         {categories.map((category) => (
           <div
             key={category.type}
             className={cn(
-              "p-3 grid grid-cols-2 gap-3",
+              "grid grid-cols-2 gap-4",
               activeTab !== category.type && "hidden"
             )}
           >
@@ -53,9 +55,12 @@ export default function Sidebar({ categories, onReset }) {
         ))}
       </div>
 
-      {/* Reset Button */}
-      <div className="p-1 cursor-pointer bg-green-600">
-        <Button variant="destructive" className="w-full text-white cursor-pointer" onClick={onReset}>
+      {/* Reset */}
+      <div className="px-4 py-3 bg-[#1f2937] border-t border-gray-700">
+        <Button
+          className="w-full cursor-pointer bg-gradient-to-r from-pink-500 to-rose-500 text-white hover:brightness-110 transition-all shadow-lg"
+          onClick={onReset}
+        >
           Reset Canvas
         </Button>
       </div>
@@ -76,18 +81,20 @@ function ElementItem({ element }) {
     <div
       ref={drag}
       className={cn(
-        "element-item bg-white drop-shadow-[0_4px_6px_rgba(34,197,94,0.3)] border border-gray-200 rounded-md p-2 shadow-sm flex flex-col items-center cursor-grab hover:shadow-lg transition-transform",
-        isDragging ? "opacity-50" : "opacity-100"
+        "bg-[#1e293b] border border-gray-700 rounded-lg p-2 shadow-md hover:shadow-lg transition-transform cursor-grab flex flex-col items-center",
+        isDragging ? "opacity-40" : "opacity-100"
       )}
       data-element={element.type}
       data-type={element.subtype}
     >
-      <img
-        src={element.src.src}
-        alt={`${element.subtype} ${element.type}`}
-        className="w-full h-20 object-contain rounded mb-1"
-      />
-      <span className="text-xs text-gray-600">{element.label}</span>
+      <div className="border border-red-900 bg-gray-50 rounded-xl">
+        <img
+          src={element.src.src}
+          alt={element.label}
+          className="w-full h-20 object-contain mb-1 rounded"
+        />
+      </div>
+      <span className="text-xs text-slate-300">{element.label}</span>
     </div>
   );
 }

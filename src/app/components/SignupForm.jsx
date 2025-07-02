@@ -58,7 +58,7 @@ export default function SignupForm({ switchToLogin }) {
           onChange={handleChange}
           required
           placeholder="Username"
-          className="inputcss"
+          className="inputcss text-black"
         />
         <input
           name="phone"
@@ -66,7 +66,7 @@ export default function SignupForm({ switchToLogin }) {
           onChange={handleChange}
           required
           placeholder="Phone"
-          className="inputcss"
+          className="inputcss text-black"
         />
         <input
           name="email"
@@ -75,7 +75,7 @@ export default function SignupForm({ switchToLogin }) {
           onChange={handleChange}
           required
           placeholder="Email"
-          className="inputcss"
+          className="inputcss text-black"
         />
         <input
           name="password"
@@ -84,7 +84,7 @@ export default function SignupForm({ switchToLogin }) {
           onChange={handleChange}
           required
           placeholder="Password"
-          className="inputcss"
+          className="inputcss text-black"
         />
         <button
           type="submit"
